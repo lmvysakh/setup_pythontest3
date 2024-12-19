@@ -1,4 +1,4 @@
-name: Python workflow test sample 2
+name: Python workflow test sample 2 after git+https change
 on:
   workflow_dispatch:
 jobs:
@@ -21,7 +21,11 @@ jobs:
 #          pip install -r requirements.txt --extra-index-url https://${{ secrets.MY_KEY }} https://github.com/lmvysakh/vault_test/tree/main/source/mainfile/maincode/
 
 
+# working    pip install -r requirements.txt --extra-index-url https://${{ secrets.MY_KEY }}@https://github.com/lmvysakh/vault_test.git@main#egg=maincode&subdirectory=source/mainfile
+
+
       - name: Install dependencies f
         run: |
           pip --version
-          pip install -r requirements.txt --extra-index-url https://${{ secrets.MY_KEY }}@https://github.com/lmvysakh/vault_test.git@main#egg=maincode&subdirectory=source/mainfile
+          pip install -r requirements.txt --extra-index-url https://${{ secrets.MY_KEY }}@https://github.com
+          pip install git+https://github.com/lmvysakh/vault_test.git@main#egg=maincode&subdirectory=source/mainfile
