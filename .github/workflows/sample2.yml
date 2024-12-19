@@ -16,9 +16,11 @@ jobs:
           cache-dependency-path: requirements*.txt
 
 #          pip install -r requirements.txt --extra-index-url https://${ado_token}@OUR_INETERNAL_ADO_PACKAGE 'REPO/_packaging/sepypi/pypi/simple/':
-#             pip install -r requirements.txt --extra-index-url https://${ado_token}@OUR_INETERNAL_ADO_PACKAGE REPO/_packaging/sepypi/pypi/simple/  
+#          pip install -r requirements.txt --extra-index-url https://${ado_token}@OUR_INETERNAL_ADO_PACKAGE REPO/_packaging/sepypi/pypi/simple/  
+#          pip install -r requirements.txt --extra-index-url https://${secrets.MY_KEY}@https://github.com/lmvysakh/vault_test/tree/main/source/mainfile/maincode/
+
 
       - name: Install dependencies f
         run: |
           pip --version
-          pip install -r requirements.txt --extra-index-url https://${secrets.MY_KEY}@https://github.com/lmvysakh/vault_test/tree/main/source/mainfile/maincode/
+          pip install -r requirements.txt --extra-index-url https://${{ secrets.MY_KEY }} https://github.com/lmvysakh/vault_test/tree/main/source/mainfile/maincode/
